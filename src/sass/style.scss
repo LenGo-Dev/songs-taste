@@ -1,8 +1,12 @@
-@import 'global';
 @import 'variables';
+@import 'global';
+
 @import 'typography';
 @import 'layout';
-
-@import 'pages/home';
+@import 'pages/playlist';
 @import 'pages/search';
 @import 'pages/discover';
+
+.test{
+  width: 100%;
+}

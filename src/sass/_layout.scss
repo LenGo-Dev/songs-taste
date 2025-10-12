@@ -1,0 +1,74 @@
+.splash {
+  height: 100%;
+  position: relative;
+  align-items: center;
+
+  .splash-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 200px;
+      padding-bottom: 150px;
+      background-image: url("/images/background.jpg");
+      background-position: center center;
+      background-size: cover;
+      box-shadow: inset 0px -100px 50px -47px #131313;
+      //background-attachment: fixed;
+
+      .page-title {
+        color: $color-text1;
+        text-transform: uppercase;
+        z-index: 3;
+
+          h1 {
+            font-size: 140px;
+            font-weight: 700;
+            letter-spacing: 60px;
+            line-height: 80px;
+          }
+      }
+
+      .page-subtitle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 50px;
+        z-index: 3;
+
+          h2 {
+            color: $color-text1;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+          }
+      }
+    }
+
+  .nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    z-index: 9999;
+
+      a {
+        color: $color-text2;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        padding: 0 50px;
+
+        &.active {
+          color: $color-text1;
+        }
+      }
+
+  }
+}

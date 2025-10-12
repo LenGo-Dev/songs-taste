@@ -1,0 +1,53 @@
+.playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  .playlist-item {
+    display: flex;
+    flex-direction: column;
+
+    .playlist-title {
+      padding: 0 0 20px 24px;
+      gap: 8px;
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: 500;
+
+      .author {
+        text-transform: uppercase;
+      }
+
+    }
+
+    .player {
+      width: 100%;
+      height: 56px;
+    }
+
+    .playlist-footer {
+      padding: 16px 16px 0 16px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      color: $color-text2;
+
+        .categories {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .ranking {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+    }
+
+
+
+  }
+
+}

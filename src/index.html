@@ -1,37 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Songs Taste</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Songs Taste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header div class="nav">
-            <a href="#home">Home</a>
-            <a href="#discover">Order</a>
-            <a href="#search">Booking</a>
-    </header>
 
-    <div id="pages">
-        <!-- START HOME PAGE -->
-        <section id="home">
-
-        </section>
-        <!-- START DISCOVER PAGE -->
-        <section id="discover">
-
-        </section>
-        <!-- START SEARCH PAGE -->
-        <section id="search">
-
-        </section>
+<header class="splash">
+  <div class="splash-inner">
+    <div class="page-title">
+      <h1>TASTE</h1>
     </div>
+    <div class="page-subtitle">
+      <h2>ENGAGE</h2>
+      <h2>IN</h2>
+      <h2>ART</h2>
+    </div>
+  </div>
+  <div class="nav">
+    <a href="#home">Home</a>
+    <a href="#discover">Discover</a>
+    <a href="#search">Search</a>
+  </div>
 
+</header>
+
+<div id="pages">
+  <section id="home">
+    <div id="playlist" class="playlist container"></div>
+  </section>
+  <!-- START SEARCH PAGE -->
+  <section id="search">
+    <div id="search-song" class="playlist container"></div>
+  </section>
+
+  <!-- START DISCOVER PAGE -->
+  <section id="discover">
+    <div id="discover-song" class="playlist container"></div>
+  </section>
+</div>
+
+<script id="template-playlist-item" type="text/x-handlebars-template">
+  <div class="playlist-item">
+    <div class="playlist-title">
+      <p>{{author}} - {{title}}</p>
+    </div>
+    <div class="player">
+      <audio  controls class="player">
+        <source src="/songs/{{filename}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="playlist-footer">
+      <div class="categories">
+        <p>Categories:</p>
+        <p>{{join categories ', '}}</p>
+      </div>
+      <div class="ranking">
+        <p>#</p>
+        <p>{{ranking}}</p>
+        <p>in the ranking</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
 <script src="js/app.js" type="module"></script>
 </body>
 </html>

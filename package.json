@@ -39,6 +39,20 @@
     "onchange": "^7.1.0",
     "postcss": "^8.5.6",
     "postcss-cli": "^8.3.1",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.34.0",
+    "eslint": "^9.34.0",
+    "globals": "^16.3.0",
+    "globstar": "^1.0.0",
+    "postcss-scss": "^4.0.4",
+    "rimraf": "^3.0.2",
+    "stylelint": "^14.11.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-scss": "^4.3.0"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
   }
 }
