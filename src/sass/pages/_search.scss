@@ -1,3 +1,20 @@
-.test{
-  width: 100%;
+form {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  label {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+
+  input {
+    min-width: 260px;
+    height: 40px;
+    border-radius: 4px;
+  }
 }

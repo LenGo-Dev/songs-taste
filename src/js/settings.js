@@ -3,6 +3,7 @@ export const select = {
     pages: '#pages',
     playlist: '#playlist',
     discoverList: '#discover-song',
+    searchList: '#search-song',
   },
   nav: {
     links: '.nav a',
@@ -10,6 +11,12 @@ export const select = {
   templateOf: {
     playlist: "#template-playlist-item",
   },
+  search: {
+    button: '#search-button',
+    input: '#search-input',
+    summary: '#search-summary',
+    form: '#search-form',
+  }
 };
 
 export const classNames = {

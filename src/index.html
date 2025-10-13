@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,9 +21,9 @@
       <h1>TASTE</h1>
     </div>
     <div class="page-subtitle">
-      <h2>ENGAGE</h2>
-      <h2>IN</h2>
-      <h2>ART</h2>
+      <h3>ENGAGE</h3>
+      <h3>IN</h3>
+      <h3>ART</h3>
     </div>
   </div>
   <div class="nav">
@@ -39,11 +40,30 @@
   </section>
   <!-- START SEARCH PAGE -->
   <section id="search">
+    <div class="container">
+      <div class="section-title">
+        <h2>SEARCH</h2>
+      </div>
+    </div>
+    <form id="search-form">
+      <label>Name</label>
+      <input type="text" name="search" id="search-input">
+      <button type="submit" class="btn-primary" id="search-button">Search</button>
+    </form>
+    <div class="section-description" id="search-summary"></div>
     <div id="search-song" class="playlist container"></div>
   </section>
 
   <!-- START DISCOVER PAGE -->
   <section id="discover">
+    <div class="container">
+      <div class="section-title">
+        <h2>DISCOVER</h2>
+      </div>
+      <div class="section-description">
+        <p>Give it a try!</p>
+      </div>
+    </div>
     <div id="discover-song" class="playlist container"></div>
   </section>
 </div>
@@ -54,7 +74,7 @@
       <p>{{author}} - {{title}}</p>
     </div>
     <div class="player">
-      <audio  controls class="player">
+      <audio controls class="player">
         <source src="/songs/{{filename}}" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>

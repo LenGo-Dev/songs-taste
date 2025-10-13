@@ -1,6 +1,7 @@
 import {select, classNames, settings} from './settings.js';
 import Song from './song.js';
 import Discover from './discover.js';
+import Search from './search.js';
 
 const app = {
 
@@ -12,7 +13,6 @@ const app = {
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
     const idFromHash = window.location.hash.replace('#/', '');
-    console.log('111', idFromHash);
     let pageMatchingHash = thisApp.pages[0].id;
 
     for (let page of thisApp.pages) {
@@ -21,7 +21,7 @@ const app = {
         break;
       }
     }
-    console.log(pageMatchingHash);
+
     thisApp.activatePage(pageMatchingHash);
 
     for (let link of [...thisApp.navLinks]) {
@@ -43,7 +43,11 @@ const app = {
 
   getRandomId() {
     const thisApp = this;
-    const len = thisApp?.data?.songs?.length ?? 0;
+    let len = 0;
+
+    if (thisApp.data && Array.isArray(thisApp.data.songs)) {
+      len = thisApp.data.songs.length;
+    }
 
     return Math.floor(Math.random() * len);
   },
@@ -68,6 +72,7 @@ const app = {
     }
 
   },
+
   initList() {
     const thisApp = this;
 
@@ -76,7 +81,10 @@ const app = {
     }
 
     thisApp.discover = new Discover(thisApp.data.songs[thisApp.getRandomId()]);
+  },
 
+  initSearch() {
+    this.search = new Search(this.data.songs);
   },
 
   initData: function () {
@@ -95,6 +103,7 @@ const app = {
         console.log('parsedResponse', parsedResponse);
         thisApp.data.songs = parsedResponse;
         thisApp.initList();
+        thisApp.initSearch();
       });
 
     console.log('thisApp.data', JSON.stringify(thisApp.data));

@@ -36,4 +36,24 @@ p, h1, h2 {
   }
 }
 
+/*Buttons*/
+
+.btn-primary {
+ background: $color-main;
+  color: $color-text1;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  border-radius: 4px;
+  padding: 12px 20px;
+  border: 1px solid $color-main;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+
+    &:hover {
+      background: $color-secondary;
+    }
+}
+
+
 
