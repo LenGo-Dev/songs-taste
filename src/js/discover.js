@@ -1,6 +1,7 @@
-import utils from "./utils.js";
-import {templates, select} from "./settings.js";
+/* global GreenAudioPlayer */
+import {select} from "./settings.js";
 import Song from "./song.js";
+// import GreenAudioPlayer from "browser-sync";
 
 class Discover {
   constructor(songs, discoverStore) {

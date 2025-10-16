@@ -115,8 +115,21 @@ const app = {
 
     document.querySelectorAll("button").forEach(btn => {
       btn.textContent = btn.textContent.toUpperCase();
-      btn.style.letterSpacing = "1.5px";
-      btn.style.fontWeight = "600";
+    });
+
+    document.querySelectorAll('.page-title').forEach(title => {
+      title.textContent = title.textContent.toUpperCase();
+    });
+
+    document.querySelectorAll('.page-subtitle h3').forEach(subtitle => {
+      subtitle.textContent = subtitle.textContent.toUpperCase();
+    });
+
+    document.querySelectorAll('a').forEach(nav => {
+      nav.textContent = nav.textContent.toUpperCase();
+    });
+    document.querySelectorAll('.section-title h2').forEach(sectionTitle => {
+      sectionTitle.textContent = sectionTitle.textContent.toUpperCase();
     });
   },
 }

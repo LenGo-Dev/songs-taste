@@ -5,9 +5,9 @@
   margin: 40px auto;
   background-size: cover;
 
-  //h2{
-  //  color: $color-text1;
-  //}
+  h2{
+    color: $color-text1;
+  }
 
   .joinNow {
     position: absolute;
@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    top: 70px;
+    top: 4.5%;
     width: 100%;
     z-index: -1;
     background-image: url("/images/subscribe.jpg");
@@ -36,53 +36,81 @@
         display: flex;
         width: 500px;
         justify-content: flex-end;
+      }
 
-          img {
-            max-width: 360px;
-            min-height: 360px;
-            height: 100%;
-          }
+      .album-image img {
+        max-width: 360px;
+        min-height: 360px;
+        height: 100%;
       }
 
       .albumTitle {
         position: absolute;
-        top:160px;
+        top: 160px;
         left: 210px;
         font-size: 24px;
         font-weight: 600;
         letter-spacing: 8px;
-
-        .albumName {
-          display: flex;
-          padding-left: 36px;
-          flex-direction: row;
-          gap: 20px;
-          .redPart {
-            color: $color-main;
-          }
-
-        }
-
       }
+
+      .albumTitle .albumName {
+        display: flex;
+        padding-left: 36px;
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .albumTitle .albumName .redPart {
+        color: $color-main;
+      }
+
+
     }
+
     .subscribeInfo {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: flex-end;
-      width: 750px;
+      width: 700px;
+
       p:first-child {
         font-size: 20px;
         font-weight: 400;
         letter-spacing: 2px;
         color: $color-text2;
       }
+
       p:last-child {
         letter-spacing: 2px;
       }
 
     }
 
+  }
+}
 
+@media (max-width: 400px) {
+  .section-title h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 6px;
+  }
+
+  .subscribe .joinNow .album {
+    flex-direction: column;
+  }
+
+  .subscribe .joinNow .album .album-image {
+    width: 360px;
+  }
+
+  .subscribe .joinNow .album .albumTitle {
+    left: 10%;
+  }
+
+  .subscribe .joinNow .subscribeInfo {
+    width: 90%;
   }
 }

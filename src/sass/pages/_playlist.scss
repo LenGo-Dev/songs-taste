@@ -3,16 +3,12 @@
   flex-direction: column;
   gap: 48px;
 
-  .green-audio-player {
-    .slider {
-      .gap-progress {
-        background-color: $color-main;
+  .green-audio-player .slider .gap-progress {
+    background-color: $color-main;
+  }
 
-        .pin {
-          background-color: $color-main;
-        }
-      }
-    }
+  .green-audio-player .slider .gap-progress .pin {
+    background-color: $color-main;
   }
 
   .playlist-item {
@@ -59,9 +55,9 @@
 }
 
 .playlist-filter {
-  max-width: 530px;
-  margin: 0 auto;
-  padding: 0;
+  max-width: 40%;
+  margin: 0 auto 32px auto;
+  padding: 0 16px;
   display: flex;
   flex-direction: row;
   text-decoration: none;
@@ -71,6 +67,7 @@
     list-style: none;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding-left: 16px;
     align-items: center;
     gap: 16px;
@@ -84,5 +81,13 @@
 
       }
     }
+  }
+}
+
+@media (max-width: 400px) {
+  .playlist-filter {
+    max-width: 100%;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
