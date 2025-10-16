@@ -1,11 +1,11 @@
 import {select, classNames, settings} from './settings.js';
-import Song from './song.js';
 import Discover from './discover.js';
 import Search from './search.js';
+import Home from './home.js';
+import DiscoverStore from "./discover-store.js";
+
 
 const app = {
-
-
   initPages: function () {
     const thisApp = this;
 
@@ -66,32 +66,31 @@ const app = {
       );
     }
 
-    if (pageId === 'discover') {
-      // gen random id
-      thisApp.discover.reRender(thisApp.data.songs[thisApp.getRandomId()])
+    if (pageId === 'home') {
+      thisApp.home.render();
+    } else if (pageId === 'discover') {
+      thisApp.discover.render();
+    } else if (pageId === 'search') {
+      thisApp.search.render();
     }
-
   },
 
-  initList() {
-    const thisApp = this;
+  initHome() {
+    this.home = new Home(this.data.songs, this.discoverStore);
+  },
 
-    for (let songData of thisApp.data.songs) {
-      thisApp.songs.push(new Song(songData));
-    }
-
-    thisApp.discover = new Discover(thisApp.data.songs[thisApp.getRandomId()]);
+  initDiscover() {
+    this.discover = new Discover(this.data.songs, this.discoverStore);
   },
 
   initSearch() {
-    this.search = new Search(this.data.songs);
+    this.search = new Search(this.data.songs, this.discoverStore);
   },
 
   initData: function () {
     const thisApp = this;
 
     thisApp.data = {};
-    thisApp.songs = [];
 
     const url = settings.db.url + '/' + settings.db.songs;
 
@@ -100,24 +99,26 @@ const app = {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
         thisApp.data.songs = parsedResponse;
-        thisApp.initList();
-        thisApp.initSearch();
-      });
+        thisApp.discoverStore = new DiscoverStore(thisApp.data.songs);
 
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
+        thisApp.initHome();
+        thisApp.initSearch();
+        thisApp.initDiscover();
+
+        thisApp.initPages();
+      });
   },
 
   init: function () {
+    this.initData();
 
-    const thisApp = this;
-
-    thisApp.initData();
-    thisApp.initPages();
+    document.querySelectorAll("button").forEach(btn => {
+      btn.textContent = btn.textContent.toUpperCase();
+      btn.style.letterSpacing = "1.5px";
+      btn.style.fontWeight = "600";
+    });
   },
-
 }
-
 
 app.init();

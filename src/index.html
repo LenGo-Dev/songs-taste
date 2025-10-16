@@ -36,7 +36,37 @@
 
 <div id="pages">
   <section id="home">
+    <div class="playlist-filter">
+      <h3>Categories:</h3>
+      <div class="categories" id="categories"></div>
+    </div>
     <div id="playlist" class="playlist container"></div>
+    <div class="subscribe">
+      <div class="section-title">
+        <h2>Subscribe Now</h2>
+      </div>
+      <div class="joinNow">
+
+        <div class="album">
+          <button type="submit" class="btn-primary">Join Now</button>
+          <div class="album-image">
+            <img src="images/artist.jpg" alt="">
+          </div>
+          <div class="albumTitle">
+            <h1 class="albumAuthor">Dean</h1>
+            <div class="albumName">
+              <h1 class="whitePart">Hen</h1>
+              <h1 class="redPart">son</h1>
+            </div>
+          </div>
+        </div>
+        <div class="subscribeInfo">
+          <p>NEW ALBUM</p>
+          <p>Available only for subscribers</p>
+        </div>
+      </div>
+
+    </div>
   </section>
   <!-- START SEARCH PAGE -->
   <section id="search">
@@ -46,11 +76,17 @@
       </div>
     </div>
     <form id="search-form">
-      <label>Name</label>
+      <label for="search-input">Name</label>
       <input type="text" name="search" id="search-input">
+      <div id="search-category-container" class="search-category"></div>
       <button type="submit" class="btn-primary" id="search-button">Search</button>
     </form>
-    <div class="section-description" id="search-summary"></div>
+    <div class="container">
+      <div class="section-description">
+        <p id="search-summary"></p>
+      </div>
+
+    </div>
     <div id="search-song" class="playlist container"></div>
   </section>
 
@@ -68,26 +104,49 @@
   </section>
 </div>
 
+<script id="template-category-select" type="text/x-handlebars-template">
+  <div class="category-wrapper">
+    <label for="category">Category</label>
+    <select name="category" id="category-select">
+      <option class="categories-list-option" value="">
+        Not selected
+      </option>
+      {{#each categories}}
+        <option class="categories-list-option" value="{{this}}">
+          {{this}}
+        </option>
+      {{/each}}
+    </select>
+  </div>
+</script>
+
+<script id="template-category-item" type="text/x-handlebars-template">
+  <ul class="categories-list">
+    {{#each categories}}
+      <li class="categories-list-item" data-category="{{this}}">
+        {{this}}
+      </li>
+    {{/each}}
+  </ul>
+</script>
+
 <script id="template-playlist-item" type="text/x-handlebars-template">
   <div class="playlist-item">
     <div class="playlist-title">
       <p>{{author}} - {{title}}</p>
     </div>
     <div class="player">
-      <audio controls class="player">
+      <audio controls class="player-song">
         <source src="/songs/{{filename}}" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
     </div>
     <div class="playlist-footer">
-      <div class="categories">
-        <p>Categories:</p>
-        <p>{{join categories ', '}}</p>
+      <div>
+        <p>Categories: {{join categories ', '}}</p>
       </div>
-      <div class="ranking">
-        <p>#</p>
-        <p>{{ranking}}</p>
-        <p>in the ranking</p>
+      <div>
+        <p>#{{ranking}} in the ranking</p>
       </div>
     </div>
   </div>

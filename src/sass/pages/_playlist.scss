@@ -3,6 +3,18 @@
   flex-direction: column;
   gap: 48px;
 
+  .green-audio-player {
+    .slider {
+      .gap-progress {
+        background-color: $color-main;
+
+        .pin {
+          background-color: $color-main;
+        }
+      }
+    }
+  }
+
   .playlist-item {
     display: flex;
     flex-direction: column;
@@ -21,8 +33,18 @@
     }
 
     .player {
+      position: relative;
       width: 100%;
       height: 56px;
+
+      .player-song {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
     }
 
     .playlist-footer {
@@ -32,22 +54,35 @@
       align-items: center;
       justify-content: space-between;
       color: $color-text2;
-
-        .categories {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-        }
-
-        .ranking {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-        }
     }
-
-
-
   }
+}
 
+.playlist-filter {
+  max-width: 530px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+
+  .categories-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 16px;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+    font-weight: 600;
+
+    li {
+      cursor: pointer;
+      &.selected {
+        color: $color-main;
+
+      }
+    }
+  }
 }

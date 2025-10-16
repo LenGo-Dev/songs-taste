@@ -4,17 +4,22 @@ export const select = {
     playlist: '#playlist',
     discoverList: '#discover-song',
     searchList: '#search-song',
+    categoryList: '#categories',
+    categorySearchContainer: "#search-category-container",
   },
   nav: {
     links: '.nav a',
   },
   templateOf: {
     playlist: "#template-playlist-item",
+    categoryList: '#template-category-item',
+    categorySearch: "#template-category-select",
   },
   search: {
     button: '#search-button',
     input: '#search-input',
     summary: '#search-summary',
+    select: '#category-select',
     form: '#search-form',
   }
 };
@@ -37,4 +42,6 @@ export const settings = {
 
 export const templates = {
   playlist: Handlebars.compile(document.querySelector(select.templateOf.playlist).innerHTML),
+  categoryList: Handlebars.compile(document.querySelector(select.templateOf.categoryList).innerHTML),
+  categorySearch: Handlebars.compile(document.querySelector(select.templateOf.categorySearch).innerHTML),
 };
